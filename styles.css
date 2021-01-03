@@ -1,0 +1,130 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+#slider {
+    margin-top: 80px;
+}
+#products {
+    padding:2rem;
+}
+.f-navbar {
+    background-color: #ececec;
+    box-shadow: 0px 5px 15px #7b7b7b;
+    /* height:60px; */
+}
+.f-footer {
+    background-color: #ececec;
+    box-shadow: 0px -5px 15px #7b7b7b;
+    text-align: center;
+    padding:0.5rem 0;
+    font-size: 1rem;
+    font-weight:bold;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.product {
+    background-color: #dddddd;
+    margin:1rem;
+    padding:2rem;
+    display: flex;
+}
+.section-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: center;
+    text-decoration: underline;
+}
+.p-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.p-desc {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.send-btn {
+    width: 100%;
+    background-color: #480269;
+    border-color: #480269;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+.textarea-size {
+    height:100px !important;
+    margin-bottom: 10px;
+}
+.center-top-down {
+    text-align: center;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+}
+.pointer-cursor {
+    cursor: pointer;
+}
+
+.nav-link {
+    color:#252525;
+    font-weight:bold;
+}
+.nav-link:hover {
+    color:#480269;
+}
+.product-image img {
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+}
+#movable-footer {
+    background-color: #292929;
+    color:#fff;
+    padding:2rem;
+    margin-bottom: 2rem;
+}
+#movable-footer a {
+    color:#fff;
+    text-decoration: none;
+}
+.footer-head {
+    font-size: 2rem;
+    font-weight: 400;
+    padding-left:2rem;
+}
+.message {
+    margin:1rem 0;
+    color:green;
+}
+.error {
+    color:red;
+}
+/* Media Queries */ 
+@media only screen and (min-width:769px){
+    .navbar-collapse {
+        width: unset;
+    }
+    #carousel-mobile {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    #carouselFade {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 567px){
+    .description {
+        order:2;
+    }
+    .product-image {
+        order:1;
+    }
+}

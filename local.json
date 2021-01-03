@@ -1,0 +1,22 @@
+[
+    {
+        "name":"Car Loan",
+        "description":"Loan Description"
+    },
+    {
+        "name":"Education Loan",
+        "description":"Loan Description"
+    },
+    {
+        "name":"Gold Loan",
+        "description":"Loan Description"
+    },
+    {
+        "name":"Home Loan",
+        "description":"Loan Description"
+    },
+    {
+        "name":"Mutual Funds",
+        "description":"Loan Description"
+    }
+]

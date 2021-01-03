@@ -1,0 +1,372 @@
+<!doctype html>
+<htm>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" crossorigin="anonymous"></link>
+        <link rel="stylesheet" href="/styles.css"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                var to,text;
+                var base_url = '';
+                $("#send_email").click(function(){     
+                    to=$("#to").val();
+                    text=$("#content").val();
+                    $("#message").text("Sending E-mail...Please wait");
+                    $.get(base_url+"/send",{to:to,text:text},function(data){
+                        if(data=="sent"){
+                            $("#message").empty().html("Your query has been submitted");
+                        }else{
+                            $('#message').addClass('.error');
+                            $('#message').empty().html('Error sending query...Please try again');
+                        }
+    
+                    });
+                });
+            });
+            $.getJSON('local.json', function(json){
+                jQuery.each($('.product'), function(index, element){
+                    $('#'+element.id+' .p-title').text(json[index].name);
+                    $('#'+element.id+' .p-desc').text(json[index].description)
+                })
+            });
+    </script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div id="header">
+                        <nav class="navbar fixed-top navbar-expand-lg navbar-light f-navbar">
+                            <div class="container-fluid">
+                                <a href="#">
+                                    <img src="assets/images/Finanziell_final.png" style="width: 148px;height:40px;">
+                                </a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#navbarTogglerDemo01" 
+                                    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="#">
+                                                Home
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#products">
+                                                Products
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link pointer-cursor" data-bs-toggle="modal" data-bs-target="#contactUsModal">
+                                                Contact Us
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link pointer-cursor" data-bs-toggle="modal" data-bs-target="#aboutUsModal">
+                                                About Us
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="slider">
+                        <div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-bs-slide-to="0" class="active"></li>
+                                <li data-bs-slide-to="1"></li>
+                                <li data-bs-slide-to="2"></li>
+                                <li data-bs-slide-to="3"></li>
+                                <li data-bs-slide-to="4"></li>
+                              </ol>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <a href="#car_loan">
+                                    <img src="assets/images/Car loan.png" class="d-block w-100 rounded" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
+                                <a href="#education_loan">
+                                    <img src="assets/images/Educational loan.png" class="d-block w-100" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
+                                <a href="#gold_loan">
+                                    <img src="assets/images/Gold loan.png" class="d-block w-100" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
+                                <a href="#home_loan">
+                                    <img src="assets/images/homeloan.png" class="d-block w-100" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
+                                <a href="#mutual_funds">
+                                    <img src="assets/images/mutual_funds_banner.png" class="d-block w-100" alt="...">
+                                </a>
+                              </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselFade" role="button" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselFade" role="button" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </a>
+                        </div>
+                        <div id="carousel-mobile" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-bs-slide-to="0" class="active"></li>
+                                <li data-bs-slide-to="1"></li>
+                                <li data-bs-slide-to="2"></li>
+                                <li data-bs-slide-to="3"></li>
+                                <li data-bs-slide-to="4"></li>
+                              </ol>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <a href="#car_loan">
+                                    <img src="assets/images/car_loan_mobile.png" class="d-block w-100 rounded" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
+                                <a href="#education_loan">
+                                    <img src="assets/images/education_loan_mobile.png" class="d-block w-100" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
+                                <a href="#gold_loan">
+                                    <img src="assets/images/gold_loan_mobile.png" class="d-block w-100" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
+                                <a href="#home_loan">
+                                    <img src="assets/images/home_loan_mobile.png" class="d-block w-100" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
+                                <a href="#mutual_funds">
+                                    <img src="assets/images/mutual_funds_mobile.png" class="d-block w-100" alt="...">
+                                </a>
+                              </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carousel-mobile" role="button" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel-mobile" role="button" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="products">
+                        <div class="section-heading">
+                            <a name="products">Products</a>
+                        </div>
+                        <div class="product" id="p1">
+                            <a name="car_loan">
+                                <div class="row">
+                                    <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10 description">
+                                        <div class="center-top-down">
+                                            <div class="p-title">Car Loan</div>
+                                            <div class="p-desc">Loan Description</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 product-image">
+                                        <img src="assets/images/Car.png" class="img-fluid">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product" id="p2">
+                            <a name="education_loan">
+                                <div class="row">
+                                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 product-image">
+                                        <img src="assets/images/Educational_V01.png" class="img-fluid">
+                                    </div>
+                                    <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10 description">
+                                        <div class="center-top-down">
+                                            <div class="p-title">Education Loan</div>
+                                            <div class="p-desc">Loan Description</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product" id="p3">
+                            <a name="home_loan">
+                                <div class="row">
+                                    <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10 description">
+                                        <div class="center-top-down">
+                                            <div class="p-title">Home Loan</div>
+                                            <div class="p-desc">Loan Description</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 product-image">
+                                        <img src="assets/images/homel .png" class="img-fluid">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product" id="p4">
+                            <a name="mutual_funds">
+                                <div class="row">
+                                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 product-image">
+                                        <img src="assets/images/mutual funds.png" class="img-fluid">
+                                    </div>
+                                    <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10 description">
+                                        <div class="center-top-down">
+                                            <div class="p-title">Mutual Funds</div>
+                                            <div class="p-desc">Mutual Funds Description</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product" id="p5">
+                            <a name="gold_loan">
+                                <div class="row">
+                                    <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xxl-10 description">
+                                        <div class="center-top-down">
+                                            <div class="p-title">Gold Loan</div>
+                                            <div class="p-desc">Loan Description</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 product-image">
+                                        <img src="assets/images/GoldV01.png" class="img-fluid">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="movable-footer">
+                <div class="col-12">
+                    <span class="footer-head">Products</span>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                    <ul type="none">
+                        <li>
+                            <a href="#car_loan">
+                                Car Loan
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#education_loan">
+                                Education Loan
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#gold_loan">
+                                Gold Loan
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#home_loan">
+                                Home Loan
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#mutual_funds">
+                                Mutual Funds
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                    <ul type="none">
+                        <li>
+                            <a class="pointer-cursor" data-bs-toggle="modal" data-bs-target="#contactUsModal">
+                                Contact Us
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pointer-cursor" data-bs-toggle="modal" data-bs-target="#aboutUsModal">
+                                About Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row f-footer">
+                <div class="col-12">
+                    <div id="footer">
+                        <div class="footer_content">
+                            <div>Finanziell</div>
+                            <div>Copyright@2021</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    </body>
+    <div class="modal fade" id="aboutUsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">About Us</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="contactUsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Write to us...</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" placeholder="Email" id="to">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <textarea class="form-control textarea-size" placeholder="Write your queries here..." id="content"></textarea>
+                            <label for="floatingTextarea">Your Query</label>
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary send-btn" id="send_email">SEND</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="message" id="message">aaa</div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</html>
