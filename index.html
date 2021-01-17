@@ -20,7 +20,7 @@
                         if(data=="sent"){
                             $("#message").empty().html("Your query has been submitted");
                         }else{
-                            $('#message').addClass('.error');
+                            $('#message').addClass('error');
                             $('#message').empty().html('Error sending query...Please try again');
                         }
     
@@ -94,7 +94,7 @@
                             <div class="carousel-inner">
                               <div class="carousel-item active">
                                 <a href="#car_loan">
-                                    <img src="assets/images/Car loan.png" class="d-block w-100 rounded" alt="...">
+                                    <img src="assets/images/Car loan.jpg" class="d-block w-100 rounded" alt="...">
                                 </a>
                               </div>
                               <div class="carousel-item">
@@ -351,13 +351,34 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     </body>
     <div class="modal fade" id="aboutUsModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">About Us</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <div style="margin:0 1rem;">
+                    <p>
+                        We at Finanziell are dedicated to our customers. Finanziell helps you choose what is best for you by considering certain parameters, to name a few 
+                    </p>
+                    <ul>
+                        <li>Lowest possible Interest Rates</li>
+                        <li>Least processing fees</li>
+                        <li>Bank gradings</li>
+                        <li>Foreclosure charges</li>
+                        <li>Eligibility</li>
+                    </ul>
+                </div>
+                <div style="margin:0 1rem;">
+                    <p>
+                        I Ashok Kumar Sethi aged 60 years is a Chartered Banker, CAIIB and retired 
+                        chief associate from State Bank of India, India's largest lender, having
+                        rich experience of 35 years also writing thesis/paper on "banking and finance-cross
+                        sell as well as up sell products pricing with reference to long term strategic risk
+                        management in climate change scenario".
+                    </p>
+                </div>
                 <div class="aboutUs_card">
                     <div class="card-logo">
                         <img src="assets/images/Finanziell_final.png"/>
@@ -369,13 +390,18 @@
                             Banker
                         </span>
                     </div>
-                    <hr style="background-color: #000;opacity:1;height:10px;">
+                    <hr />
                     <div class="card-info">
-                        <p>
-                            <span>Ex CA (CSS)</span>
-                            <img src="assets/images/SBI-Logo.png" />
-                            <span>Statebank Of India</span>
-                        </p>
+                        <div style="margin:5px 0;color: #00192f;font-weight: 500;">
+                            <span>Ex. CA (CSS)</span>
+                            <img src="assets/images/sbi-logo.png" style="width:30px;margin:0 5px;
+                                position: relative;top:-2px;"/>
+                            <span>State Bank Of India</span>
+                        </div>
+                        <div>
+                            <img src="assets/images/indian-flag.png" style="width:25px;"/>
+                            <span>+91 94160 90985</span>
+                        </div>
                     </div>
                 </div>
             </div>

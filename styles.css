@@ -15,6 +15,11 @@ html, body {
 #carouselFade {
     padding: 0 2rem;
 }
+hr{
+    background-image:linear-gradient(to right, #f29f22 40%, #000 60%);
+    opacity:1;
+    height:10px !important;
+}
 .f-navbar {
     background-color: #ececec;
     box-shadow: 0px 5px 15px #7b7b7b;
@@ -85,6 +90,10 @@ html, body {
     top:50%;
     transform: translateY(-50%);
 }
+.aboutUs_card {
+    padding: 1.5rem;
+    background-color: beige;
+}
 #movable-footer {
     background-color: #292929;
     color:#fff;
@@ -111,7 +120,7 @@ html, body {
     color:#f59e1b;
 }
 .card-logo img {
-    width:40%;
+    width:30%;
 }
 .card-name {
     margin:1rem 0;
