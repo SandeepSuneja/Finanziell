@@ -3,29 +3,33 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon"></link>
+        <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png"></link>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" crossorigin="anonymous"></link>
         <link rel="stylesheet" href="/styles.css"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <title>Finanziell</title>
         <script>
+            function validateContactForm(){
+                var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                if(document.forms['contactUs']['name'].value != '' &&
+                document.forms['contactUs']['email'].value != '' &&
+                document.forms['contactUs']['message'].value != '' &&
+                document.forms['contactUs']['email'].value.match(mailformat)){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
             $(document).ready(function(){
-                var to,text;
-                var base_url = '';
-                $("#send_email").click(function(){     
-                    to=$("#to").val();
-                    text=$("#content").val();
-                    $("#message").text("Sending E-mail...Please wait");
-                    $.get(base_url+"/send",{to:to,text:text},function(data){
-                        if(data=="sent"){
-                            $("#message").empty().html("Your query has been submitted");
-                        }else{
-                            $('#message').addClass('error');
-                            $('#message').empty().html('Error sending query...Please try again');
-                        }
-    
-                    });
-                });
+                if(window.location.href.indexOf('?tryagain') > -1){
+                    document.getElementById('error').style.display = 'block';
+                    setTimeout(function(){
+                        document.getElementById('error').style.display = 'none';
+                    },3000);
+                }
             });
             $.getJSON('local.json', function(json){
                 jQuery.each($('.product'), function(index, element){
@@ -33,7 +37,7 @@
                     $('#'+element.id+' .p-desc').text(json[index].description)
                 })
             });
-    </script>
+        </script>
     </head>
     <body>
         <div class="container-fluid">
@@ -93,33 +97,33 @@
                               </ol>
                             <div class="carousel-inner">
                               <div class="carousel-item active">
+                                <a href="#nps">
+                                    <img src="assets/images/nps.jpg" class="d-block w-100 rounded" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
+                                <a href="#gold_loan">
+                                    <img src="assets/images/Gold loan.png" class="d-block w-100 rounded" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
+                                <a href="#home_loan">
+                                    <img src="assets/images/homeloan.png" class="d-block w-100 rounded" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
                                 <a href="#car_loan">
                                     <img src="assets/images/Car loan.jpg" class="d-block w-100 rounded" alt="...">
                                 </a>
                               </div>
                               <div class="carousel-item">
                                 <a href="#education_loan">
-                                    <img src="assets/images/Educational loan.png" class="d-block w-100" alt="...">
-                                </a>
-                              </div>
-                              <div class="carousel-item">
-                                <a href="#gold_loan">
-                                    <img src="assets/images/Gold loan.png" class="d-block w-100" alt="...">
-                                </a>
-                              </div>
-                              <div class="carousel-item">
-                                <a href="#home_loan">
-                                    <img src="assets/images/homeloan.png" class="d-block w-100" alt="...">
+                                    <img src="assets/images/Educational loan.png" class="d-block w-100 rounded" alt="...">
                                 </a>
                               </div>
                               <div class="carousel-item">
                                 <a href="#mutual_funds">
-                                    <img src="assets/images/mutual_funds_banner.png" class="d-block w-100" alt="...">
-                                </a>
-                              </div>
-                              <div class="carousel-item">
-                                <a href="#nps">
-                                    <img src="assets/images/nps.jpg" class="d-block w-100" alt="...">
+                                    <img src="assets/images/mutual_funds_banner.png" class="d-block w-100 rounded" alt="...">
                                 </a>
                               </div>
                             </div>
@@ -143,33 +147,33 @@
                               </ol>
                             <div class="carousel-inner">
                               <div class="carousel-item active">
+                                <a href="#nps">
+                                    <img src="assets/images/nps_mobile.jpg" class="d-block w-100 rounded" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
+                                <a href="#gold_loan">
+                                    <img src="assets/images/gold_loan_mobile.png" class="d-block w-100 rounded" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
+                                <a href="#home_loan">
+                                    <img src="assets/images/home_loan_mobile.png" class="d-block w-100 rounded" alt="...">
+                                </a>
+                              </div>
+                              <div class="carousel-item">
                                 <a href="#car_loan">
                                     <img src="assets/images/car_loan_mobile.png" class="d-block w-100 rounded" alt="...">
                                 </a>
                               </div>
                               <div class="carousel-item">
                                 <a href="#education_loan">
-                                    <img src="assets/images/education_loan_mobile.png" class="d-block w-100" alt="...">
-                                </a>
-                              </div>
-                              <div class="carousel-item">
-                                <a href="#gold_loan">
-                                    <img src="assets/images/gold_loan_mobile.png" class="d-block w-100" alt="...">
-                                </a>
-                              </div>
-                              <div class="carousel-item">
-                                <a href="#home_loan">
-                                    <img src="assets/images/home_loan_mobile.png" class="d-block w-100" alt="...">
+                                    <img src="assets/images/education_loan_mobile.png" class="d-block w-100 rounded" alt="...">
                                 </a>
                               </div>
                               <div class="carousel-item">
                                 <a href="#mutual_funds">
-                                    <img src="assets/images/mutual_funds_mobile.png" class="d-block w-100" alt="...">
-                                </a>
-                              </div>
-                              <div class="carousel-item">
-                                <a href="#nps">
-                                    <img src="assets/images/nps_mobile.jpg" class="d-block w-100" alt="...">
+                                    <img src="assets/images/mutual_funds_mobile.png" class="d-block w-100 rounded" alt="...">
                                 </a>
                               </div>
                             </div>
@@ -348,9 +352,7 @@
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    </body>
-    <div class="modal fade" id="aboutUsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="aboutUsModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
@@ -402,6 +404,9 @@
                             <img src="assets/images/indian-flag.png" style="width:25px;"/>
                             <span>+91 94160 90985</span>
                         </div>
+                        <div>
+                            <span>Mail : sethi67plahisar@gmail.com 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -416,10 +421,19 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <form name="contactUs" action="mail.php" method="post" onsubmit="return validateContactForm()">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="Email" id="name" name="name" required>
+                                <label for="floatingInput">Name</label>
+                            </div>
+                        </div>
+                    </div>
                 <div class="row">
                     <div class="col-12">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" placeholder="Email" id="to">
+                            <input type="email" class="form-control" placeholder="Email" id="from" name="email" required>
                             <label for="floatingInput">Email address</label>
                         </div>
                     </div>
@@ -427,23 +441,38 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="form-floating">
-                            <textarea class="form-control textarea-size" placeholder="Write your queries here..." id="content"></textarea>
+                            <textarea class="form-control textarea-size" placeholder="Write your queries here..." id="content" name="message" required></textarea>
                             <label for="floatingTextarea">Your Query</label>
                           </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button type="button" class="btn btn-primary send-btn" id="send_email">SEND</button>
+                        <button type="submit" class="btn btn-primary send-btn" id="send_email" name="submit">SEND</button>
+                    </div>
+                </div>
+                </form>
+                <div class="row">
+                    <div class="col">
+                        <div class="divider">
+                            <hr />
+                            <span>OR</span>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <div class="message" id="message"></div>
+                    <div class="col or-msg">
+                        <div>You can message or whatsapp us at this contact</div>
+                        <p>+91 94160 90985</p>
                     </div>
                 </div>
             </div>
           </div>
         </div>
     </div>
+    <div id="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Message Not Sent!</strong> Please fill appropriate values and try again.
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    </body>
 </html>
